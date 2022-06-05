@@ -46,7 +46,7 @@ const Header = () => {
               localStorage.setItem("darkTheme", JSON.stringify(true));
             }
           }}
-          className="flex items-center md:text-lg"
+          className="flex items-center md:text-lg cursor-pointer"
         >
           {darkTheme ? (
             <IoSunny className="mr-3 w-5 h-5" />
