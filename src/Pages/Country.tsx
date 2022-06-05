@@ -94,8 +94,8 @@ const Country = () => {
           >
             <img
               src={countryData.flags.svg}
-              className="shadow-md"
-              style={{ maxWidth: "600px" }}
+              className=""
+              style={{ maxWidth: "600px", maxHeight: "400px" }}
               alt="flg"
             />
             <div className="flex w-full flex-col text-xl lg:ml-10">
