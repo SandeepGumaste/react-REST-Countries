@@ -1,25 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import Home from "./Pages/Home";
+import store from "./store";
+import { Provider } from "react-redux";
+import Layout from "./Components/Layout";
+import Country from "./Pages/Country";
+import NotFound from "./Pages/NotFound";
+import NoConnection from "./Pages/NoConnection";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Layout>
+        <Router>
+          <div className={`App`}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/region/:filter" element={<Home />} />
+              <Route path="/region/404" element={<NotFound />} />
+              <Route path="/region/" element={<NotFound />} />
+              <Route path="/country/:name" element={<Country />} />
+              <Route path="/country/404" element={<NotFound />} />
+              <Route path="/country/" element={<NotFound />} />
+              <Route path="/no-connection" element={<NoConnection />} />
+            </Routes>
+          </div>
+        </Router>
+      </Layout>
+    </Provider>
   );
 }
 
